@@ -39,22 +39,6 @@ $db = "IRAPL";
 $conn = new mysqli($server,$user,$pass,$db);
 if($conn) echo "<script>console.log('Connection to Database Successful!')</script>";
 
-/* Numbering ID after Deletion */
-
-  $count = 0;
-  $sql  = "select id from feedback";
-  $result = $conn->query($sql);
-  $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
-  foreach($array as $arr) {
-    $count++;
-    if($count != $arr["id"]) {
-      $sql = "UPDATE feedback SET id = ".$count;
-      $conn->query($sql);
-    }
-  }
-  if($conn->query($sql)) echo "<script>console.log('ID Reset Successful!')</script>";
-
-/* Numbering ID after Deletion */
 
 $sql = "SELECT * FROM feedback";
 $result = $conn->query($sql);
@@ -83,27 +67,27 @@ echo '<form method="post" action="delete.php"><input type="hidden" name="array_i
 
       </div>
       <div class="modal-body">'
-        .'<label>Organisation Category: </label>'.@$arr[$option]["org_category"].
-        '<br><label>Organisation Name: </label>'.@$arr[$option]["org_name"].
-        '<br><label>State: </label>'.@$arr[$option]["state"].
-        '<br><label>Address: </label>'.@$arr[$option]["address"].
-        '<br><label>Pincode:  </label>'.@$arr[$option]["pincode"].
-        '<br><label>Website:  </label>'.@$arr[$option]["website"].
-        '<br><label>Organisation Email:  </label>'.@$arr[$option]["org_email"].
-        '<hr>'.
-        '<br><label>Name:  </label>'.@$arr[$option]["salutation"].@$arr[$option]["name"].
-        '<br><label>Designation:  </label>'.@$arr[$option]["designation"].
-        '<br><label>Mobile:  </label>'.@$arr[$option]["mobile"].
-        '<br><label>Email:  </label>'.@$arr[$option]["email"].
-        '<br><label>Landline:  </label>'.@$arr[$option]["landline"].
-        '<br><label>Fax:  </label>'.@$arr[$option]["fax"].
-        '<br><label>Remarks:  </label>'.@$arr[$option]["remarks"].
-        '<hr><br><label>Total Cash:  </label>'.@$arr[$option]["total_cash"].
-        '<br><label>Payment Type:  </label>'.@$arr[$option]["payment_type"].
-        '<br><label>Date of Full Payment:  </label>'.@$arr[$option]["date_of_full_pay"].
-        '<br><label>Date of Advance Payment:  </label>'.@$arr[$option]["date_of_adv_pay"].
-        '<br><label>Advanced Cash Paid:  </label>'.@$arr[$option]["adv_cash_paid"].
-        '<br><label>Pending Payment:  </label>'.@$arr[$option]["pending_pay"].
+        .'<label><strong>Organisation Category &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["org_category"].
+        '<br><label><strong>Organisation Name &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["org_name"].
+        '<br><label><strong>State &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["state"].
+        '<br><label><strong>Address &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["address"].
+        '<br><label><strong>Pincode &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["pincode"].
+        '<br><label><strong>Website &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["website"].
+        '<br><label><strong>Organisation Email &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["org_email"].
+        '<hr><h5>Contact Details</h5><hr>'.
+        '<label><strong>Name &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["salutation"].@$arr[$option]["name"].
+        ', <em>'.@$arr[$option]["designation"].
+        '</em><br><label><strong>Mobile &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["mobile"].
+        '<br><label><strong>Email &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["email"].
+        '<br><label><strong>Landline &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["landline"].
+        '<br><label><strong>Fax &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["fax"].
+        '<br><label><strong>Remarks &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["remarks"].
+        '<hr><h5>Payment Details</h5><hr><label><strong>Total Cash &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["total_cash"].
+        '<br><label><strong>Payment Type &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["payment_type"].
+        '<br><label><strong>Date of Full Payment &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["date_of_full_pay"].
+        '<br><label><strong>Date of Advance Payment &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["date_of_adv_pay"].
+        '<br><label><strong>Advanced Cash Paid &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["adv_cash_paid"].
+        '<br><label><strong>Pending Payment &nbsp;:&nbsp;</strong></label>'.@$arr[$option]["pending_pay"].
       '</div>
     </div>
 
@@ -112,8 +96,12 @@ echo '<form method="post" action="delete.php"><input type="hidden" name="array_i
 </div>';
 $conn->close();
 ?>
-
-
+<br><br><br>  
+<footer class="footer mt-auto py-4 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; IRAPL 2019</p>
+    </div>
+</footer>
  
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

@@ -15,16 +15,20 @@
         </button>
         
         <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto ">
-            <li class="nav-item active">
-                <a class="nav-link" href="./index.php">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./add.html">Add Client</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./view.php">View</a>
-            </li>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./add.html">Add Client</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="./view.php">View</a>
+                </li>
+
+                <li class="nav-item">
+                    <a data-toggle="modal" class="nav-link modal-category" href="#cat-report">Category Report</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -66,6 +70,46 @@ foreach($array as $arr) {
 echo "</div>";  
 
 ?>
+
+<div class="modal category" id="cat-report" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  	<div class="modal-dialog modal-dialog-centered" role="document">
+   		 <div class="modal-content ">
+      		<div class="modal-header">
+       		 <h5 class="modal-title" id="cat-report">Category Report</h5>
+       		 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         		 <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+
+    <div class="modal-body col-xs-10">
+        <p>Which catergory's report do you want to generate?.</p>
+        <form method="get" action="generatedList.php">
+            <select name='category' class='form-control text-center'>
+<?php 
+$sql  = "select distinct org_category from feedback";
+$result = $conn->query($sql);
+$array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+foreach($array as $arr) echo "<option value='".$arr["org_category"]."'>".$arr["org_category"]."</option>";
+
+mysqli_close($conn);
+?>
+            </select><br>
+            <center><input type="submit" class="btn btn-success" value="Generate Category Report"/></center>
+        </form>
+    		</div>
+      	</div>
+  	</div>
+</div>  
+
+
+<!-- Footer -->
+<br><br><br>
+<footer class="footer mt-auto py-4 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; IRAPL 2019</p>
+    </div>
+</footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

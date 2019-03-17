@@ -51,14 +51,10 @@
         <label>Organization Category : </label>
         <input list="org_category" class="form-control" name="org_category">
         <datalist id="org_category">
-          <option value="NGO">NGO</option>
-          <option value="Medical College">Medical College</option>
-          <option value="Hospital">Hospital</option>
+          <option value="Corporate/Companies/BE">Corporate/Companies/BE</option>
           <option value="Educational Institution">Educational Institution</option>
-          <option value="Corporate">Corporate</option>
-          <option value="Consultant">Consultant</option>
-          <option value="Family">Family</option>
-          <option value="Friends">Friends</option>
+          <option value="Hospitals">Hospitals</option>
+          <option value="NGO">NGO</option>
           <option value="Study Abroad">Study Abroad</option>
         </datalist><br>
 
@@ -147,7 +143,7 @@
         <label>Designation : <input type="text" value=" " size="200" class="form-control" name="designation"></label><br>
 
         <!--Mobile-->
-        <label>Mobile : <input type="number" value="0" max="9999999999" class="form-control" name="mobile"></label>
+        <label>Mobile : <input type="number" value="0" class="form-control" name="mobile"></label>
 
         <!--Landline-1--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label>Landline : <input type="number" value="0" class="form-control" name="landline"></label>
@@ -173,6 +169,10 @@
 
         <label>Payment Type: </label>
         <div class="form-group form-inline">
+            <div class="custom-control custom-radio">
+                <input name="payment_type" id="No" class="custom-control-input" value="No" type="radio" checked>
+                <label class="custom-control-label" for="No"> No Payment </label>
+              </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div class="custom-control custom-radio">
             <input name="payment_type" id="Full" class="custom-control-input" value="Full" type="radio">
             <label class="custom-control-label" for="Full"> Full Payment </label>
@@ -210,7 +210,11 @@
         <input type="submit" class="btn btn-block btn-success" value="SUBMIT"><br>
     </form>
   </div>
-  
+  <footer class="footer mt-auto py-4 bg-dark">
+      <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; IRAPL 2019</p>
+      </div>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
@@ -220,6 +224,8 @@
       $('.contact-details').hide();
       $('.payment-details').hide();
       $('.btn-success').hide();
+      $('.adv-pay').hide();
+      $('.full-pay').hide();
       $count = 0;
       $('.btn-next').click(function(){
         if($count<2 && $count>=0)$count++;
@@ -266,6 +272,12 @@
           default:
             break;
         }
+      })
+      $("#No").click(function() {
+        $('.adv-pay').hide();
+        $('.full-pay').hide();
+        document.getElementsByName('date_of_full_pay')[0].defaultValue = "0001-01-01";
+        document.getElementsByName('date_of_adv_pay')[0].defaultValue = "0001-01-01";
       })
 
       $("#Full").click(function(){
