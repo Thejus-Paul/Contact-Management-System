@@ -33,7 +33,7 @@
         </div>
     </nav>
     <div class="jumbotron" style="background-color: #fff;border-radius: 0;color: white;">
-        <center><img src="./logo.png" width="300px" ></center>
+        <center><img src="./IRAPL.svg" width="200px" ></center><br><br>
         <div class="container">
             <form method="get" action="index.php">
                 <div class="input-group mb-3">
