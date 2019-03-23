@@ -71,7 +71,9 @@ $payment_type = $_POST["payment_type"];
 $date_of_full_pay = $_POST["date_of_full_pay"];
 $date_of_adv_pay = $_POST["date_of_adv_pay"];
 $adv_cash_paid = $_POST["adv_cash_paid"];
-$pending_pay = $_POST["pending_pay"];
+$pending_pay = 0;
+
+if($payment_type == "Advanced") $pending_pay = $total_cash - $adv_cash_paid;
 
 $sql = "INSERT INTO feedback (id, org_category, org_name, state, address, pincode, website, org_email, salutation, name, designation, mobile, email, landline, fax, remarks, total_cash, payment_type, date_of_full_pay, date_of_adv_pay, adv_cash_paid, pending_pay) 
 VALUES (NULL, '".$org_category."', '".$org_name."', '".$state."', '".$address."', ".$pincode.", '".$website."', '".$org_email."', '".$salutation."', '".$name."', '".$designation."', ".$mobile.", '".$email."', ".$landline.", ".$fax.", '".$remarks."', ".$total_cash.", '".$payment_type."', '".$date_of_full_pay."', '".$date_of_adv_pay."', '".$adv_cash_paid."', '".$pending_pay."');";
