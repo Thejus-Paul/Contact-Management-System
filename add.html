@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,31 +9,27 @@
   <style>
   .form-control{color:black;}
   .company-details,.contact-details,.payment-details {
-    background: #B2EBF2 ;
+    background: silver;
     padding: 50px;
   }
   
   </style>
 </head>
 
-<body> 
+<body style="background-color #eee;"> 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="./index.php">IRAPL</a>
+    <a class="navbar-brand" href="./index.php">IRAPL | <strong>Client Management System</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-        <a class="nav-link" href="./index.php">Home</a>
+        <a class="nav-link" href="./index.php">HOME</a>
         </li>
 
         <li class="nav-item active">
-        <a class="nav-link" href="./add.html">Add Client</a>
-        </li>
-
-        <li class="nav-item">
-        <a class="nav-link" href="./view.php">View</a>
+        <a class="nav-link" href="./add.html">ADD</a>
         </li>
       </ul>
     </div>
@@ -48,7 +43,7 @@
       
         <!-- Organization Category -->
 
-        <label>Organization Category : </label>
+        <label>Organization Category  </label>
         <input list="org_category" class="form-control" name="org_category">
         <datalist id="org_category">
           <option value="Corporate/Companies/BE">Corporate/Companies/BE</option>
@@ -59,11 +54,11 @@
         </datalist><br>
 
         <!-- Organization Name -->
-        <label>Name of Organization : <input type="text" value=" " class="form-control" name="org_name" size="200"></label><br>
+        <label>Name of Organization  <input type="text" value=" " class="form-control" name="org_name" size="200"></label><br>
 
         <!--State-->
     
-        <label>State:</label>
+        <label>State</label>
         <input list="state" class="form-control" name="state">
         <datalist id="state">
           <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -105,16 +100,16 @@
         </datalist><br>
 
         <!-- Address -->
-        <label>Address : <textarea class="form-control" value=" " name="address" cols="200"> </textarea></label><br>
+        <label>Address  <textarea class="form-control" value=" " name="address" cols="200"> </textarea></label><br>
 
         <!--Pincode-->
-        <label>Pincode : <input type="number" class="form-control" value="0" name="pincode" maxlength="12" max="999999999999" min="0"></label><br>
+        <label>Pincode  <input type="number" class="form-control" value="0" name="pincode" maxlength="12" max="999999999999" min="0"></label><br>
 
         <!--Website-->
-        <label>Website : <input type="text" value=" " size="60" class="form-control" name="website"></label>
+        <label>Website  <input type="text" value=" " size="60" class="form-control website" name="website"></label>
 
         <!--Email--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>Email : <input type="email" value=" " size="50" class="form-control" name="org_email"></label><br>
+        <label>Email  <input type="email" value=" " size="50" class="form-control" name="org_email"></label><br>
 
         <button type="button" class="btn btn-back btn-primary">Back</button>
         <button type="button" class="btn btn-next btn-info">Next</button>
@@ -125,7 +120,7 @@
         
         <!--Salutation-->
        
-        <label for="salutation">Salutation : </label>
+        <label for="salutation">Salutation  </label>
         <input list="salutation" class="form-control" name="salutation">
         <datalist id="salutation">
           <option value="Mr.">Mr.</option>
@@ -137,25 +132,25 @@
         </datalist><br>
 
         <!--Contact Person-Name-->
-        <label>Name : <input type="name" value=" " size="200" class="form-control" name="name"></label><br>
+        <label>Name  <input type="name" value=" " size="200" class="form-control" name="name"></label><br>
 
         <!--Designation-->
-        <label>Designation : <input type="text" value=" " size="200" class="form-control" name="designation"></label><br>
+        <label>Designation  <input type="text" value=" " size="200" class="form-control" name="designation"></label><br>
 
         <!--Mobile-->
-        <label>Mobile : <input type="number" value="0" class="form-control" name="mobile"></label>
+        <label>Mobile  <input type="number" value="0" class="form-control" name="mobile"></label>
 
         <!--Landline-1--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>Landline : <input type="number" value="0" class="form-control" name="landline"></label>
+        <label>Landline  <input type="number" value="0" class="form-control" name="landline"></label>
 
         <!--Fax--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        <label>Fax : <input type="number" value="0" class="form-control" name="fax"></label><br>
+        <label>Fax  <input type="number" value="0" class="form-control" name="fax"></label><br>
 
         <!--Email-1-->
-        <label>Email : <input type="email" value=" " size="200" class="form-control" name="email"></label><br> 
+        <label>Email  <input type="email" value=" " size="200" class="form-control" name="email"></label><br> 
 
         <!--Remarks-->
-        <label>Remarks : <textarea value=" " class="form-control" cols="200" name="remarks"> </textarea></label><br>
+        <label>Remarks  <textarea value=" " class="form-control" cols="200" name="remarks"> </textarea></label><br>
         
         <button class="btn btn-back btn-primary" type="button" class="btn-back">Back</button>
         <button class="btn btn-next btn-info" type="button" class="btn-next">Next</button>
@@ -164,10 +159,8 @@
       <div class="payment-details">
         <h2> Payment Details</h2><br>
         
-        <!--Cash Payment(Total)-->
-        <label>Total Cash : <input type="number" value="0" class="form-control" name="total_cash"></label><br><br>
 
-        <label>Payment Type: </label>
+        <label>Payment Type </label>
         <div class="form-group form-inline">
             <div class="custom-control custom-radio">
                 <input name="payment_type" id="No" class="custom-control-input" value="No" type="radio" checked>
@@ -182,22 +175,44 @@
             <label class="custom-control-label" for="Adv"> Advance Payment </label> 
           </div>
         </div><br>
+
+        <!--Cash Payment(Total)-->
+        <div class="total-cash">
+        <label>Total Cash  </label>
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">&#x20B9;</span>
+          </div>
+          <input type="number" value="0" class="form-control" name="total_cash">
+        </div><br>
+        </div>
+
+
         <div class="full-pay">
           <!--Date of Payment(Full Cash)-->
-          <label>Date of Full Payment :  <input type="date" value="0001-01-01" class="form-control" name="date_of_full_pay"></label><br>
+          <label>Date of Full Payment   <input type="date" value="0001-01-01" class="form-control" name="date_of_full_pay"></label><br>
         </div>
 
         
         <div class="adv-pay">
 
-          <!--Date of Payment(Advance Cash)-->
-          <label>Date of Advance Payment :  <input type="date" value="0001-01-01" class="form-control" name="date_of_adv_pay"></label><br>
-
           <!--Cash Paid in Advance-->
-          <label>Advance Cash Paid : <input type="number" value="0" class="form-control" name="adv_cash_paid"></label><br>
+          <div class="total-cash">
+              <label>Advance Cash Paid  </label>
+              <div class="input-group ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">&#x20B9;</span>
+                </div>
+                <input type="number" value="0" class="form-control" name="adv_cash_paid">
+              </div><br>
+          </div>
+
+          <!--Date of Payment(Advance Cash)-->
+          <label>Date of Advance Payment   <input type="date" value="0001-01-01" class="form-control" name="date_of_adv_pay"></label><br>
+
 
           <!--Pending Payment
-          <label>Pending Payment :  <input type="number" value="0"   class="form-control" name="pending_pay"></label><br><br>
+          <label>Pending Payment   <input type="number" value="0"   class="form-control" name="pending_pay"></label><br><br>
           -->
         </div>
         
@@ -205,7 +220,6 @@
         <button class="btn btn-back btn-primary" type="button" class="btn-back">Back</button>
         <button class="btn btn-next btn-info" type="button" class="btn-next">Next</button>
 
-        
       </div><br>
         <input type="submit" class="btn btn-block btn-success" value="SUBMIT"><br>
     </form>
@@ -224,10 +238,18 @@
       $('.contact-details').hide();
       $('.payment-details').hide();
       $('.btn-success').hide();
+      $('.btn-back').hide();
       $('.adv-pay').hide();
+      $('.total-cash').hide();
       $('.full-pay').hide();
       $count = 0;
+
+      $('.website').click(function(){
+        $('.website')[0].defaultValue = '';
+      })
+
       $('.btn-next').click(function(){
+        $('.btn-back').show();
         if($count<2 && $count>=0)$count++;
         switch ($count) {
           case 0:{
@@ -245,6 +267,7 @@
             $('.contact-details').hide();
             $('.payment-details').show();
             $('.btn-success').show();
+            $('.btn-next').hide();
           }break;
           default:
             break;
@@ -252,9 +275,10 @@
       })
       $('.btn-back').click(function(){
         if($count<=3 && $count>0) $count--;
-        else $count = 0;
+        else {$count = 0; $(this).hide();}
         switch ($count) {
           case 0:{
+            $('.btn-back').hide();
             $('.company-details').show();
             $('.contact-details').hide();
             $('.payment-details').hide();
@@ -263,6 +287,7 @@
             $('.company-details').hide();
             $('.contact-details').show();
             $('.payment-details').hide();
+            $('.btn-next').show();
           }break;
           case 2: {
             $('.company-details').hide();
@@ -276,6 +301,7 @@
       $("#No").click(function() {
         $('.adv-pay').hide();
         $('.full-pay').hide();
+        $('.total-cash').hide();
         document.getElementsByName('date_of_full_pay')[0].defaultValue = "0001-01-01";
         document.getElementsByName('date_of_adv_pay')[0].defaultValue = "0001-01-01";
       })
@@ -283,6 +309,7 @@
       $("#Full").click(function(){
         $('.adv-pay').hide();
         $('.full-pay').show();
+        $('.total-cash').show();
         document.getElementsByName('date_of_full_pay')[0].defaultValue = "";
         document.getElementsByName('date_of_adv_pay')[0].defaultValue = "0001-01-01";
       })
@@ -290,6 +317,7 @@
       $("#Adv").click(function(){
         $('.adv-pay').show();
         $('.full-pay').hide();
+        $('.total-cash').show();
         document.getElementsByName('date_of_adv_pay')[0].defaultValue = "";
         document.getElementsByName('date_of_full_pay')[0].defaultValue = "0001-01-01";
       })

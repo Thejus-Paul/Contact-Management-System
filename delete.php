@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="./index.php">IRAPL</a>
+<a class="navbar-brand" href="./index.php">IRAPL | CLIENT MANAGEMENT SYSTEM </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -17,13 +17,10 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="./index.php">Home</a>
+            <a class="nav-link" href="./index.php">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./add.html">Add Client</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="./view.php">View</a>
+            <a class="nav-link" href="./add.html">ADD</a>
           </li>
         </ul>
       </div>
@@ -48,7 +45,7 @@ if (mysqli_query($conn, $sql)) {
 <button type='button' class='close' data-dismiss='alert'>&times;</button>
 Error deleting record: ".mysqli_error($conn)."</div><br>";
 }
-echo "<br><a class='btn btn-success' href='view.php'> Go Back</a>";
+echo "<br><a class='btn btn-success' href='index.php'> Go Back</a>";
 
 /* Reset the numbering in ID after an entry being deleted */
 
