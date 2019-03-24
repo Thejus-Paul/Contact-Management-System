@@ -68,8 +68,8 @@ if($conn) echo "<script>console.log('Connection to Database Successful!')</scrip
 
 @$org_name = $_GET['org_name'];
 
-$sql  = "select id,org_name from feedback where org_name like '%".$org_name."%' or id like '".$org_name."' order by org_name asc";
-
+if(!$org_name == '') $sql  = "select id,org_name from feedback where org_name like '%".$org_name."%' or id like '".$org_name."' order by org_name asc";
+else $sql  = "select id,org_name from feedback order by org_name";
 $result = $conn->query($sql);
 
 $array = mysqli_fetch_all($result,MYSQLI_ASSOC);
