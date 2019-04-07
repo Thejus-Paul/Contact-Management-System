@@ -129,7 +129,7 @@ foreach($array as $arr) {
         </datalist><br>
 
         <!-- Address -->
-        <label>Address  <textarea class="form-control" value="'.$arr["address"].'" name="address" cols="200"> </textarea></label><br>
+        <label>Address  <textarea class="form-control" name="address" cols="200">'.$arr["address"].'</textarea></label><br>
 
         <!--Pincode-->
         <label>Pincode  <input type="number" class="form-control" value="'.$arr["pincode"].'" name="pincode" maxlength="12" max="999999999999" min="0"></label><br>
@@ -179,7 +179,7 @@ foreach($array as $arr) {
         <label>Email  <input type="email" value="'.$arr["email"].'" size="200" class="form-control" name="email"></label><br> 
 
         <!--Remarks-->
-        <label>Remarks  <textarea value="'.$arr["remarks"].'" class="form-control" cols="200" name="remarks"> </textarea></label><br>
+        <label>Remarks  <textarea class="form-control" cols="200" name="remarks">'.$arr["remarks"].'</textarea></label><br>
         
         <button class="btn btn-back btn-primary" type="button" class="btn-back">Back</button>
         <button class="btn btn-next btn-info" type="button" class="btn-next">Next</button>
@@ -211,7 +211,7 @@ foreach($array as $arr) {
           }
           echo'</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div class="custom-control custom-radio">';
-          if($arr["payment_type"] == "Adv") {
+          if($arr["payment_type"] == "Advanced") {
             echo '<input name="payment_type" id="Adv" class="custom-control-input" value="Advanced" type="radio" checked>
             <label class="custom-control-label" for="Adv"> Advance Payment </label>';
           } else {
@@ -248,16 +248,16 @@ foreach($array as $arr) {
                 <div class="input-group-prepend">
                   <span class="input-group-text">&#x20B9;</span>
                 </div>
-                <input type="number" value="0" class="form-control" name="adv_cash_paid">
+                <input type="number" value="'.$arr["adv_cash_paid"].'" class="form-control" name="adv_cash_paid">
               </div><br>
           </div>
 
           <!--Date of Payment(Advance Cash)-->
-          <label>Date of Advance Payment   <input type="date" value="0001-01-01" class="form-control" name="date_of_adv_pay"></label><br>
+          <label>Date of Advance Payment   <input type="date" value="'.$arr["date_of_adv_pay"].'" class="form-control" name="date_of_adv_pay"></label><br>
 
 
           <!--Pending Payment
-          <label>Pending Payment   <input type="number" value="0"   class="form-control" name="pending_pay"></label><br><br>
+          <label>Pending Payment   <input type="number" value="0" class="form-control" name="pending_pay"></label><br><br>
           -->
         </div>';
 
@@ -349,22 +349,18 @@ foreach($array as $arr) {
         $('.adv-pay').hide();
         $('.full-pay').hide();
         $('.total-cash').hide();
-        document.getElementsByName('date_of_full_pay')[0].defaultValue = "0001-01-01";
-        document.getElementsByName('date_of_adv_pay')[0].defaultValue = "0001-01-01";
       })
 
       $("#Full").click(function(){
         $('.adv-pay').hide();
         $('.full-pay').show();
         $('.total-cash').show();
-        document.getElementsByName('date_of_adv_pay')[0].defaultValue = "0001-01-01";
       })
 
       $("#Adv").click(function(){
         $('.adv-pay').show();
         $('.full-pay').hide();
         $('.total-cash').show();
-        document.getElementsByName('date_of_full_pay')[0].defaultValue = "0001-01-01";
       })
  
     })

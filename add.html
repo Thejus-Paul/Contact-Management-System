@@ -17,7 +17,6 @@
     font-family: 'Baloo Chettan', cursive;
   }
   label{
-    font-family: 'Nanum Gothic', sans-serif;
     font-weight: bold;
   }
   .btn-next {
@@ -312,24 +311,18 @@
         $('.adv-pay').hide();
         $('.full-pay').hide();
         $('.total-cash').hide();
-        document.getElementsByName('date_of_full_pay')[0].defaultValue = "0001-01-01";
-        document.getElementsByName('date_of_adv_pay')[0].defaultValue = "0001-01-01";
       })
 
       $("#Full").click(function(){
         $('.adv-pay').hide();
         $('.full-pay').show();
         $('.total-cash').show();
-        document.getElementsByName('date_of_full_pay')[0].defaultValue = "";
-        document.getElementsByName('date_of_adv_pay')[0].defaultValue = "0001-01-01";
       })
 
       $("#Adv").click(function(){
         $('.adv-pay').show();
         $('.full-pay').hide();
         $('.total-cash').show();
-        document.getElementsByName('date_of_adv_pay')[0].defaultValue = "";
-        document.getElementsByName('date_of_full_pay')[0].defaultValue = "0001-01-01";
       })
     })
   </script>

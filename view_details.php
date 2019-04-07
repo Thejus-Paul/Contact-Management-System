@@ -59,14 +59,14 @@ if(@$arr["remarks"] != ' ') echo '<br><label><strong>Remarks &nbsp;:&nbsp;</stro
 echo "<hr><h5><strong>Payment Details</strong></h5><hr>";
 if(@$arr["total_cash"] != 0) echo '<label><strong>Total Cash &nbsp;:&nbsp;</strong></label>'.@$arr["total_cash"].'<br>';
 echo '<label><strong>Payment Type &nbsp;:&nbsp;</strong></label>'.@$arr["payment_type"];
-if(@$arr["date_of_full_pay"] != "0001-01-01") echo '<br><label><strong>Date of Full Payment &nbsp;:&nbsp;</strong></label>'.@$arr["date_of_full_pay"];
-if(@$arr["date_of_adv_pay"] != "0001-01-01") echo '<br><label><strong>Date of Advance Payment &nbsp;:&nbsp;</strong></label>'.@$arr["date_of_adv_pay"];
-if(@$arr["adv_cash_paid"] != 0) echo '<br><label><strong>Advanced Cash Paid &nbsp;:&nbsp;</strong></label>'.@$arr["adv_cash_paid"];
-if(@$arr["pending_pay"] != 0) echo '<br><label><strong>Pending Payment &nbsp;:&nbsp;</strong></label>'.@$arr["pending_pay"];
+if(@$arr["payment_type"]=="Full") if(@$arr["date_of_full_pay"] != "0000-00-00") echo '<br><label><strong>Date of Full Payment &nbsp;:&nbsp;</strong></label>'.@$arr["date_of_full_pay"];
+if(@$arr["payment_type"]=="Advanced") if(@$arr["date_of_adv_pay"] != "0000-00-00") echo '<br><label><strong>Date of Advance Payment &nbsp;:&nbsp;</strong></label>'.@$arr["date_of_adv_pay"];
+if(@$arr["payment_type"]=="Advanced") if(@$arr["adv_cash_paid"] != 0) echo '<br><label><strong>Advanced Cash Paid &nbsp;:&nbsp;</strong></label>'.@$arr["adv_cash_paid"];
+if(@$arr["payment_type"]=="Advanced") if(@$arr["pending_pay"] != 0) echo '<br><label><strong>Pending Payment &nbsp;:&nbsp;</strong></label>'.@$arr["pending_pay"];
 '</div>';
 }
 mysqli_close($conn);
 ?>
-<br><br>
+</div><br><br>
 </body>
 </html>
