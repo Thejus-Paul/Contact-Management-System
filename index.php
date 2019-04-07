@@ -80,6 +80,9 @@ foreach($array as $arr) {
     <form class='float-right' style='display: inline;' method='post' action='delete.php'>
     <input type='hidden' name='array_id' value='".$arr["id"]."'>
     <input class='btn btn-danger' type='submit' value='Delete'></form>
+    <form class='float-right' style='display: inline;' method='get' action='modify.php'>
+    <input type='hidden' name='id' value='".$arr["id"]."'>
+    <input class='btn btn-warning' type='submit' value='Modify'></form>
     <form class='float-right' style='display: inline;' method='get' action='view_details.php'>
     <input type='hidden' name='id' value='".$arr["id"]."'>
     <input class='btn btn-success' type='submit' value='View'></form></div>";
