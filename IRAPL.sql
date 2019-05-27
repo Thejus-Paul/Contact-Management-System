@@ -59,9 +59,6 @@ CREATE TABLE `feedback` (
 -- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`id`, `org_category`, `org_name`, `state`, `address`, `pincode`, `website`, `org_email`, `salutation`, `name`, `designation`, `mobile`, `email`, `email2`, `country_code`, `area_code`, `landline`, `remarks`, `total_cash`, `payment_type`, `date_of_full_pay`, `date_of_adv_pay`, `adv_cash_paid`, `pending_pay`) VALUES
-(1, 'Corporate/Companies/BE', 'New Company ', 'Kerala', 'Somewhere ', 0, ' ', '', 'Mr.', ' Google', 'Company', 0, 'helpdesk@gmail.com', 'newhelpdesk@gmail.com', ' ', 0, 0, ' ', 100000000, 'Full', '2019-05-10', '0000-00-00', 0, 0);
-
 --
 -- Indexes for dumped tables
 --
@@ -80,7 +77,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` bigint(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
