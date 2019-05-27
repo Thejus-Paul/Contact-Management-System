@@ -43,7 +43,6 @@ CREATE TABLE `feedback` (
   `mobile` bigint(15) NOT NULL,
   `email` varchar(150) NOT NULL,
   `landline` bigint(15) NOT NULL,
-  `fax` bigint(15) NOT NULL,
   `remarks` varchar(600) NOT NULL,
   `total_cash` bigint(15) NOT NULL,
   `payment_type` varchar(100) NOT NULL,
