@@ -53,14 +53,13 @@
         <!-- Organization Category -->
 
         <label>Organization Category  </label>
-        <input list="org_category" class="form-control" name="org_category">
-        <datalist id="org_category">
+        <select class="form-control" name="org_category">
           <option value="Corporate/Companies/BE">Corporate/Companies/BE</option>
           <option value="Educational Institution">Educational Institution</option>
           <option value="Hospitals">Hospitals</option>
           <option value="NGO">NGO</option>
           <option value="Study Abroad">Study Abroad</option>
-        </datalist><br>
+        </select><br>
 
         <!-- Organization Name -->
         <label>Name of Organization  <input type="text" value=" " class="form-control" name="org_name" size="200"></label><br>
@@ -149,7 +148,9 @@
         <label>Mobile  <input type="number" value="0" class="form-control" name="mobile"></label>
 
         <!--Landline-1--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>Landline  <input type="number" value="0" class="form-control" name="landline"></label>
+        <label>Country <input type="text" value=" " size="3" class="form-control" name="country_code"></label>
+        <label>Area <input type="text" value=" " size="3" class="form-control" name="area_code"></label>
+        <label>Landline <input type="number" value="0" class="form-control" name="landline"></label>
 
         <!--Email-1-->
         <label>Email  <input type="email" value=" " size="200" class="form-control" name="email"></label><br> 
@@ -195,7 +196,7 @@
 
         <div class="full-pay">
           <!--Date of Payment(Full Cash)-->
-          <label>Date of Full Payment   <input type="date" value="0001-01-01" class="form-control" name="date_of_full_pay"></label><br>
+          <label>Date of Full Payment   <input type="date" class="form-control" name="date_of_full_pay"></label><br>
         </div>
 
         
@@ -213,7 +214,7 @@
           </div>
 
           <!--Date of Payment(Advance Cash)-->
-          <label>Date of Advance Payment   <input type="date" value="0001-01-01" class="form-control" name="date_of_adv_pay"></label><br>
+          <label>Date of Advance Payment   <input type="date" class="form-control" name="date_of_adv_pay"></label><br>
 
 
           <!--Pending Payment

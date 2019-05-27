@@ -53,7 +53,7 @@ echo '<hr><h5><strong>Contact Details</strong></h5><hr>'.
 ', <em>'.@$arr["designation"].
 '</em><br><label><strong>Mobile &nbsp;:&nbsp;</strong></label>'.@$arr["mobile"];
 if(@$arr["email"] != ' ' || @$arr["email"] != '') echo '<br><label><strong>Email &nbsp;:&nbsp;</strong></label>'.@$arr["email"];
-if(@$arr["landline"] != 0) echo '<br><label><strong>Landline &nbsp;:&nbsp;</strong></label>'.@$arr["landline"];
+if(@$arr["landline"] != 0) echo '<br><label><strong>Landline &nbsp;:&nbsp;</strong></label>'.@$arr['country_code'].' - '.@$arr['area_code'].' - '.@$arr["landline"];
 if(@$arr["fax"] != 0) echo '<br><label><strong>Fax &nbsp;:&nbsp;</strong></label>'.@$arr["fax"];
 if(@$arr["remarks"] != ' ') echo '<br><label><strong>Remarks &nbsp;:&nbsp;</strong></label>'.@$arr["remarks"];
 echo "<hr><h5><strong>Payment Details</strong></h5><hr>";

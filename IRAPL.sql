@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 26, 2019 at 09:15 PM
+-- Generation Time: Mar 17, 2019 at 11:52 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -43,6 +43,7 @@ CREATE TABLE `feedback` (
   `mobile` bigint(15) NOT NULL,
   `email` varchar(150) NOT NULL,
   `landline` bigint(15) NOT NULL,
+  `fax` bigint(15) NOT NULL,
   `remarks` varchar(600) NOT NULL,
   `total_cash` bigint(15) NOT NULL,
   `payment_type` varchar(100) NOT NULL,
