@@ -60,6 +60,7 @@ $name = $_POST["name"];
 $designation = $_POST["designation"];
 $mobile = $_POST["mobile"];
 $email = $_POST["email"];
+$email2 = $_POST["email2"];
 $ccode = $_POST['country_code'];
 $acode = $_POST['area_code'];
 $landline = $_POST["landline"];
@@ -74,8 +75,8 @@ $pending_pay = 0;
 
 if($payment_type == "Advanced") $pending_pay = $total_cash - $adv_cash_paid;
 
-$sql = "INSERT INTO feedback (id, org_category, org_name, state, address, pincode, website, org_email, salutation, name, designation, mobile, email, country_code, area_code, landline, remarks, total_cash, payment_type, date_of_full_pay, date_of_adv_pay, adv_cash_paid, pending_pay) 
-VALUES (NULL, '".$org_category."', '".$org_name."', '".$state."', '".$address."', ".$pincode.", '".$website."', '".$org_email."', '".$salutation."', '".$name."', '".$designation."', ".$mobile.", '".$email."','".$ccode."', '".$acode."', ".$landline.", '".$remarks."', ".$total_cash.", '".$payment_type."', '".$date_of_full_pay."', '".$date_of_adv_pay."', '".$adv_cash_paid."', '".$pending_pay."');";
+$sql = "INSERT INTO feedback (id, org_category, org_name, state, address, pincode, website, org_email, salutation, name, designation, mobile, email, email2, country_code, area_code, landline, remarks, total_cash, payment_type, date_of_full_pay, date_of_adv_pay, adv_cash_paid, pending_pay) 
+VALUES (NULL, '".$org_category."', '".$org_name."', '".$state."', '".$address."', ".$pincode.", '".$website."', '".$org_email."', '".$salutation."', '".$name."', '".$designation."', ".$mobile.", '".$email."','".$email2."', '".$ccode."', '".$acode."', ".$landline.", '".$remarks."', ".$total_cash.", '".$payment_type."', '".$date_of_full_pay."', '".$date_of_adv_pay."', '".$adv_cash_paid."', '".$pending_pay."');";
 if($conn->query($sql) === TRUE)  echo '<br><br><div class="container"><div class="alert alert-success"> 
 <strong>Insertion Successful!</strong></div><br>';
 else echo '<div class="alert alert-dismissible alert-danger">

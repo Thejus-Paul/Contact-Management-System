@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2019 at 11:52 AM
+-- Generation Time: May 27, 2019 at 04:22 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -42,6 +42,9 @@ CREATE TABLE `feedback` (
   `designation` varchar(150) NOT NULL,
   `mobile` bigint(15) NOT NULL,
   `email` varchar(150) NOT NULL,
+  `email2` varchar(150) DEFAULT NULL,
+  `country_code` varchar(5) DEFAULT NULL,
+  `area_code` bigint(20) DEFAULT NULL,
   `landline` bigint(15) NOT NULL,
   `remarks` varchar(600) NOT NULL,
   `total_cash` bigint(15) NOT NULL,
@@ -51,6 +54,13 @@ CREATE TABLE `feedback` (
   `adv_cash_paid` bigint(15) NOT NULL,
   `pending_pay` bigint(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `org_category`, `org_name`, `state`, `address`, `pincode`, `website`, `org_email`, `salutation`, `name`, `designation`, `mobile`, `email`, `email2`, `country_code`, `area_code`, `landline`, `remarks`, `total_cash`, `payment_type`, `date_of_full_pay`, `date_of_adv_pay`, `adv_cash_paid`, `pending_pay`) VALUES
+(1, 'Corporate/Companies/BE', 'New Company ', 'Kerala', 'Somewhere ', 0, ' ', '', 'Mr.', ' Google', 'Company', 0, 'helpdesk@gmail.com', 'newhelpdesk@gmail.com', ' ', 0, 0, ' ', 100000000, 'Full', '2019-05-10', '0000-00-00', 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -70,7 +80,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` bigint(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
