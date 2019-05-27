@@ -47,7 +47,30 @@
         <div class="container">
             <form method="get" action="index.php">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="org_name" placeholder="Enter Org.Name/ID to lookup an organization" style="border: 1px solid black;color: black;text-align: center; " aria-label="Organization Name" aria-describedby="button-addon2">
+<?php
+
+$server = "localhost";
+$user = "root";
+$pass = "";
+$db = "IRAPL";
+
+$conn = new mysqli($server,$user,$pass,$db);
+if($conn) echo "<script>console.log('Connection to Database Successful!')</script>";
+
+$sql  = "select id,org_name from feedback";
+$result = $conn->query($sql);
+
+$array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+echo '<input list="org_name" class="form-control" placeholder="Enter Org.Name/ID to lookup an organization" name="org_name"><datalist id="org_name">';
+$count = 1;
+foreach($array as $arr) {
+    echo '<option value="'.$arr['org_name'].'">'.$arr['id'].'</option>';
+}
+echo "</datalist>";  
+
+?>
+                    
+                    
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary btn-success" type="submit" style="border: 1px solid green;color: white;" id="button-addon2">Go &#x27A4;</button>
                     </div>
@@ -58,10 +81,10 @@
 
 <?php
 
-$server = "localhost";
-$user = "root";
-$pass = "";
-$db = "IRAPL";
+// $server = "localhost";
+// $user = "root";
+// $pass = "";
+// $db = "IRAPL";
 
 $conn = new mysqli($server,$user,$pass,$db);
 if($conn) echo "<script>console.log('Connection to Database Successful!')</script>";
