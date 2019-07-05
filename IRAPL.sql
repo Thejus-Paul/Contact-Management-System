@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 27, 2019 at 04:22 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Host: 127.0.0.1
+-- Generation Time: Jul 05, 2019 at 12:29 PM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,30 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `IRAPL`
+-- Database: `irapl`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `counter`
+--
+
+CREATE TABLE `counter` (
+  `ID` int(11) NOT NULL,
+  `Companies` int(11) NOT NULL DEFAULT '0',
+  `Educational_Institution` int(11) NOT NULL DEFAULT '0',
+  `Hospitals` int(11) NOT NULL DEFAULT '0',
+  `NGO` int(11) NOT NULL DEFAULT '0',
+  `Study_Abroad` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `counter`
+--
+
+INSERT INTO `counter` (`ID`, `Companies`, `Educational_Institution`, `Hospitals`, `NGO`, `Study_Abroad`) VALUES
+(1, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -56,12 +78,14 @@ CREATE TABLE `feedback` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `feedback`
+-- Indexes for dumped tables
 --
 
 --
--- Indexes for dumped tables
+-- Indexes for table `counter`
 --
+ALTER TABLE `counter`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `feedback`
@@ -74,10 +98,16 @@ ALTER TABLE `feedback`
 --
 
 --
+-- AUTO_INCREMENT for table `counter`
+--
+ALTER TABLE `counter`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` bigint(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` bigint(15) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

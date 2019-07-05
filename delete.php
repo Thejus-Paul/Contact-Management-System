@@ -35,11 +35,25 @@ $db = "IRAPL";
 $conn = new mysqli($server,$user,$pass,$db);
 if($conn) echo "<script>console.log('Connection to Database Successful!')</script>";
 
+// For obtaining the Organization Category
+$sql = "SELECT * FROM feedback WHERE id = ".$_POST['array_id'];
+$result = $conn->query($sql);
+$arr = mysqli_fetch_object($result);
+$org_category = $arr->org_category;
+
 echo "<br><br><div class='container'>";
 $sql = "DELETE FROM `feedback` WHERE `id` = ".$_POST['array_id'].";";
 if (mysqli_query($conn, $sql)) {
-    echo '<div class="alert alert-success"> 
-<strong>Deletion Successful!</strong></div><br>';
+  echo '<div class="alert alert-success"><strong>Deletion Successful!</strong></div><br>';
+  // Counter Decrementation
+  switch($org_category) {
+    case "Corporate/Companies/BE": $org_category = "Companies";break;
+    case "Educational Institution": $org_category = "Educational_Institution";break;
+    case "Study Abroad": $org_category = "Study_Abroad";break;
+  }
+  $counter = "UPDATE counter SET ".$org_category." = ".$org_category." - 1 WHERE ID = 1";
+  if($conn->query($counter))
+    echo "<script>console.log('Decremented Counter!');</script>";
 } else {
     echo "<div class='alert alert-dismissible alert-warning'>
 <button type='button' class='close' data-dismiss='alert'>&times;</button>

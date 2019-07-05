@@ -36,7 +36,7 @@ $db = "IRAPL";
 $conn = new mysqli($server,$user,$pass,$db);
 if($conn) echo "<script>console.log('Connection to Database Successful!')</script>";
 
-/* For ID to increment normally */
+// For ID to increment normally (Auto-increment Reset)
 
   $id_count = 0;
   $sql  = "select id from feedback";
@@ -46,8 +46,7 @@ if($conn) echo "<script>console.log('Connection to Database Successful!')</scrip
   $sql = "ALTER TABLE feedback AUTO_INCREMENT = ".$id_count;
   if($conn->query($sql)) echo "<script>console.log('Auto_Increment Reset Successful!')</script>";
 
-/* For ID to increment normally */
-
+// Converting to Variables
 $org_category = $_POST["org_category"];
 $org_name = $_POST["org_name"];
 $state = $_POST["state"];
@@ -72,13 +71,27 @@ $date_of_full_pay = $_POST["date_of_full_pay"];
 $date_of_adv_pay = $_POST["date_of_adv_pay"];
 $adv_cash_paid = $_POST["adv_cash_paid"];
 $pending_pay = 0;
-
+// Calculating the Pending Pay
 if($payment_type == "Advanced") $pending_pay = $total_cash - $adv_cash_paid;
 
 $sql = "INSERT INTO feedback (id, org_category, org_name, state, address, pincode, website, org_email, salutation, name, designation, mobile, email, email2, country_code, area_code, landline, remarks, total_cash, payment_type, date_of_full_pay, date_of_adv_pay, adv_cash_paid, pending_pay) 
 VALUES (NULL, '".$org_category."', '".$org_name."', '".$state."', '".$address."', ".$pincode.", '".$website."', '".$org_email."', '".$salutation."', '".$name."', '".$designation."', ".$mobile.", '".$email."','".$email2."', '".$ccode."', '".$acode."', ".$landline.", '".$remarks."', ".$total_cash.", '".$payment_type."', '".$date_of_full_pay."', '".$date_of_adv_pay."', '".$adv_cash_paid."', '".$pending_pay."');";
-if($conn->query($sql) === TRUE)  echo '<br><br><div class="container"><div class="alert alert-success"> 
-<strong>Insertion Successful!</strong></div><br>';
+
+if($conn->query($sql)){  
+  echo '<br><br><div class="container"><div class="alert alert-success"><strong>Insertion Successful!</strong></div><br>';
+  // Counter Incremetation
+  switch($org_category) {
+    case "Corporate/Companies/BE": $org_category = "Companies";break;
+    case "Educational Institution": $org_category = "Educational_Institution";break;
+    case "Study Abroad": $org_category = "Study_Abroad";break;
+  }
+  $counter = "UPDATE counter SET ".$org_category." = ".$org_category." + 1 WHERE ID = 1";
+  if($conn->query($counter))
+    echo "<script>console.log('Incremented Counter!');</script>";
+  else
+    echo $conn->error;
+}
+// Code for displaying the eror
 else echo '<div class="alert alert-dismissible alert-danger">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 Error :'.$conn->error.'</div>';
