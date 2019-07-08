@@ -71,31 +71,45 @@ $date_of_full_pay = $_POST["date_of_full_pay"];
 $date_of_adv_pay = $_POST["date_of_adv_pay"];
 $adv_cash_paid = $_POST["adv_cash_paid"];
 $pending_pay = 0;
+$max = 2;
+
 // Calculating the Pending Pay
 if($payment_type == "Advanced") $pending_pay = $total_cash - $adv_cash_paid;
 
-$sql = "INSERT INTO feedback (id, org_category, org_name, state, address, pincode, website, org_email, salutation, name, designation, mobile, email, email2, country_code, area_code, landline, remarks, total_cash, payment_type, date_of_full_pay, date_of_adv_pay, adv_cash_paid, pending_pay) 
-VALUES (NULL, '".$org_category."', '".$org_name."', '".$state."', '".$address."', ".$pincode.", '".$website."', '".$org_email."', '".$salutation."', '".$name."', '".$designation."', ".$mobile.", '".$email."','".$email2."', '".$ccode."', '".$acode."', ".$landline.", '".$remarks."', ".$total_cash.", '".$payment_type."', '".$date_of_full_pay."', '".$date_of_adv_pay."', '".$adv_cash_paid."', '".$pending_pay."');";
-
-if($conn->query($sql)){  
-  echo '<br><br><div class="container"><div class="alert alert-success"><strong>Insertion Successful!</strong></div><br>';
-  // Counter Incremetation
-  switch($org_category) {
-    case "Corporate/Companies/BE": $org_category = "Companies";break;
-    case "Educational Institution": $org_category = "Educational_Institution";break;
-    case "Study Abroad": $org_category = "Study_Abroad";break;
-  }
-  $counter = "UPDATE counter SET ".$org_category." = ".$org_category." + 1 WHERE ID = 1";
-  if($conn->query($counter))
-    echo "<script>console.log('Incremented Counter!');</script>";
-  else
-    echo $conn->error;
+switch($org_category) {
+  case "Corporate/Companies/BE": $org_category = "Companies";break;
+  case "Educational Institution": $org_category = "Educational_Institution";break;
+  case "Study Abroad": $org_category = "Study_Abroad";break;
 }
-// Code for displaying the eror
-else echo '<div class="alert alert-dismissible alert-danger">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
-Error :'.$conn->error.'</div>';
-echo "<br><a class='btn btn-success' href='index.php'> Go Back</a></div></div>";
+
+$sql  = "select * from counter where ID = 1";
+$result = $conn->query($sql);
+$array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+foreach($array as $arr) $count = $arr[$org_category];
+
+if($count < $max) {
+  $sql = "INSERT INTO feedback (id, org_category, org_name, state, address, pincode, website, org_email, salutation, name, designation, mobile, email, email2, country_code, area_code, landline, remarks, total_cash, payment_type, date_of_full_pay, date_of_adv_pay, adv_cash_paid, pending_pay) 
+  VALUES (NULL, '".$_POST["org_category"]."', '".$org_name."', '".$state."', '".$address."', ".$pincode.", '".$website."', '".$org_email."', '".$salutation."', '".$name."', '".$designation."', ".$mobile.", '".$email."','".$email2."', '".$ccode."', '".$acode."', ".$landline.", '".$remarks."', ".$total_cash.", '".$payment_type."', '".$date_of_full_pay."', '".$date_of_adv_pay."', '".$adv_cash_paid."', '".$pending_pay."');";
+
+  if($conn->query($sql)){  
+    echo '<br><br><div class="container"><div class="alert alert-success"><strong>Insertion Successful!</strong></div><br>';
+    // Counter Incremetation
+
+    $counter = "UPDATE counter SET ".$org_category." = ".$org_category." + 1 WHERE ID = 1";
+      if($conn->query($counter))
+        echo "<script>console.log('Incremented Counter!');</script>";
+      else
+        echo $conn->error;
+  }
+  // Code for displaying the eror
+  else echo '<br><div class="container"><div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  Error :'.$conn->error.'</div></div>';
+}
+else echo '<br><div class="container"><div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  Error : Max limit of entries have reached. No more entries can be made. Please delete entries from this category to add more.</div></div>';
+echo "<br><div class='container'><a class='btn btn-success' href='index.php'> Go Back</a></div></div>";
 $conn->close();
 ?>
 </body>
