@@ -68,207 +68,204 @@ $count = 1;
 
 foreach($array as $arr) {
   echo '<form method="POST" action="modify_action.php?id='.$id.'"><br>
-        <div class="company-details">
-        <h2> Company Information</h2><br>
+  <div class="company-details">
+  <h2> Company Information</h2><br>
+
+  <!-- Organization Category -->
+
+  <label>Organization Category  </label>
+  <select class="form-control" value="'.$arr["org_category"].'" name="org_category">
+    <option value="Corporate/Companies/BE">Corporate/Companies/BE</option>
+    <option value="Educational Institution">Educational Institution</option>
+    <option value="Hospitals">Hospitals</option>
+    <option value="NGO">NGO</option>
+    <option value="Study Abroad">Study Abroad</option>
+  </select><br>
+
+  <!-- Organization Name -->
+  <label>Name of Organization  <input type="text" value="'.$arr["org_name"].'" class="form-control" name="org_name" size="200"></label><br>
+
+  <!--State-->
+
+  <label>State</label>
+  <input list="state" value="'.$arr["state"].'" class="form-control" name="state">
+  <datalist id="state">
+    <option value="Andhra Pradesh">Andhra Pradesh</option>
+    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+    <option value="Assam">Assam</option>
+    <option value="Bihar">Bihar</option>
+    <option value="Chattisgarh">Chattisgarh</option>
+    <option value="Goa">Goa</option>
+    <option value="Gujarat">Gujarat</option>
+    <option value="Haryana">Haryana</option>
+    <option value="Himachal Pradesh">Himachal Pradesh</option>
+    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+    <option value="Jharkhand">Jharkhand</option>
+    <option value="Karnataka">Karnataka</option>
+    <option value="Kerala">Kerala</option>
+    <option value="Madhya Pradesh">Madhya Pradesh</option>
+    <option value="Maharashtra">Maharashtra</option>
+    <option value="Manipur">Manipur</option>
+    <option value="Meghalaya">Meghalaya</option>
+    <option value="Mizoram">Mizoram</option>
+    <option value="Nagaland">Nagaland</option>
+    <option value="Odisha">Odisha</option>
+    <option value="Punjab">Punjab</option>
+    <option value="Rajasthan">Rajasthan</option>
+    <option value="Sikkim">Sikkim</option>
+    <option value="Tamil Nadu">Tamil Nadu</option>
+    <option value="Telangana">Telangana</option>
+    <option value="Tripura">Tripura</option>
+    <option value="Uttar Pradesh">Uttar Pradesh</option>
+    <option value="Utarakhand">Utarakhand</option>
+    <option value="West Bengal">West Bengal</option>
+    <option value="Andaman and Nicobar Islands (UT)">Andaman and Nicobar Islands (UT)</option>
+    <option value="Chandigarh (UT)">Chandigarh (UT)</option>
+    <option value="Dadar and Nagar Haveli (UT)">Dadar and Nagar Haveli (UT)</option>
+    <option value="Damman and Diu (UT)">Damman and Diu (UT)</option>
+    <option value="Delhi (UT)">Delhi (UT)</option>
+    <option value="Lakshadweep (UT)">Lakshadweep (UT)</option>
+    <option value="Pondicherry (UT)">Pondicherry (UT)</option>
+  </datalist><br>
+
+  <!-- Address -->
+  <label>Address  <textarea class="form-control" name="address" cols="200">'.$arr["address"].'</textarea></label><br>
+
+  <!--Pincode-->
+  <label>Pincode  <input type="number" class="form-control" value="'.$arr["pincode"].'" name="pincode" maxlength="12" max="999999999999" min="0"></label><br>
+
+  <!--Website-->
+  <label>Website  <input type="text" value="'.$arr["website"].'" size="60" class="form-control website" name="website"></label>
+
+  <!--Email--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <label>Email  <input type="email" value="'.$arr["org_email"].'" size="50" class="form-control" name="org_email"></label><br>
+
+  <button type="button" class="btn btn-back btn-primary">Back</button>
+  <button type="button" class="btn btn-next btn-info">Next</button>
+</div>
+
+<div class="contact-details">
+  <h2> Contact Information </h2><br>
   
-        <!-- Organization Category -->
-        <label>Organization Category  </label>
-        <input list="org_category" value="'.$arr["org_category"].'" class="form-control" name="org_category">
-        <datalist id="org_category">
-          <option value="Corporate/Companies/BE">Corporate/Companies/BE</option>
-          <option value="Educational Institution">Educational Institution</option>
-          <option value="Hospitals">Hospitals</option>
-          <option value="NGO">NGO</option>
-          <option value="Study Abroad">Study Abroad</option>
-        </datalist><br>
+  <!--Salutation-->
+ 
+  <label for="salutation">Salutation  </label>
+  <select class="form-control" value="'.$arr["salutation"].'" name="salutation" id="salutation">
+    <option value="Mr.">Mr.</option>
+    <option value="Ms.">Ms.</option>
+    <option value="Shri.">Shri.</option>
+    <option value="Smt.">Smt.</option>
+    <option value="Prof.">Prof.</option>
+    <option value="Dr.">Dr.</option>
+  </select><br>
 
-        <!-- Organization Name -->
-        <label>Name of Organization  <input type="text" value="'.$arr["org_name"].'" class="form-control" name="org_name" size="200"></label><br>
+  <!--Contact Person-Name-->
+  <label>Name  <input type="name" value="'.$arr["name"].'" size="200" class="form-control" name="name"></label><br>
 
-        <!--State-->
-    
-        <label>State</label>
-        <input list="state" class="form-control" value="'.$arr["state"].'" name="state">
-        <datalist id="state">
-          <option value="Andhra Pradesh">Andhra Pradesh</option>
-          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-          <option value="Assam">Assam</option>
-          <option value="Bihar">Bihar</option>
-          <option value="Chattisgarh">Chattisgarh</option>
-          <option value="Goa">Goa</option>
-          <option value="Gujarat">Gujarat</option>
-          <option value="Haryana">Haryana</option>
-          <option value="Himachal Pradesh">Himachal Pradesh</option>
-          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-          <option value="Jharkhand">Jharkhand</option>
-          <option value="Karnataka">Karnataka</option>
-          <option value="Kerala">Kerala</option>
-          <option value="Madhya Pradesh">Madhya Pradesh</option>
-          <option value="Maharashtra">Maharashtra</option>
-          <option value="Manipur">Manipur</option>
-          <option value="Meghalaya">Meghalaya</option>
-          <option value="Mizoram">Mizoram</option>
-          <option value="Nagaland">Nagaland</option>
-          <option value="Odisha">Odisha</option>
-          <option value="Punjab">Punjab</option>
-          <option value="Rajasthan">Rajasthan</option>
-          <option value="Sikkim">Sikkim</option>
-          <option value="Tamil Nadu">Tamil Nadu</option>
-          <option value="Telangana">Telangana</option>
-          <option value="Tripura">Tripura</option>
-          <option value="Uttar Pradesh">Uttar Pradesh</option>
-          <option value="Utarakhand">Utarakhand</option>
-          <option value="West Bengal">West Bengal</option>
-          <option value="Andaman and Nicobar Islands (UT)">Andaman and Nicobar Islands (UT)</option>
-          <option value="Chandigarh (UT)">Chandigarh (UT)</option>
-          <option value="Dadar and Nagar Haveli (UT)">Dadar and Nagar Haveli (UT)</option>
-          <option value="Damman and Diu (UT)">Damman and Diu (UT)</option>
-          <option value="Delhi (UT)">Delhi (UT)</option>
-          <option value="Lakshadweep (UT)">Lakshadweep (UT)</option>
-          <option value="Pondicherry (UT)">Pondicherry (UT)</option>
-        </datalist><br>
+  <!--Designation-->
+  <label>Designation  <input type="text" value="'.$arr["designation"].'" size="200" class="form-control" name="designation"></label><br>
 
-        <!-- Address -->
-        <label>Address  <textarea class="form-control" name="address" cols="200">'.$arr["address"].'</textarea></label><br>
+  <!--Mobile-->
+  <label>Mobile  <input type="number" value="'.$arr["mobile"].'" class="form-control" name="mobile"></label>
 
-        <!--Pincode-->
-        <label>Pincode  <input type="number" class="form-control" value="'.$arr["pincode"].'" name="pincode" maxlength="12" max="999999999999" min="0"></label><br>
+  <!--Landline-1--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <label>Country <input type="text" value="'.$arr["country_code"].'" size="3" class="form-control" name="country_code"></label>
+  <label>Area <input type="text" value="'.$arr["area_code"].'" size="3" class="form-control" name="area_code"></label>
+  <label>Landline <input type="number" value="'.$arr["landline"].'" class="form-control" name="landline"></label>
 
-        <!--Website-->
-        <label>Website  <input type="text" value="'.$arr["website"].'" size="60" class="form-control website" name="website"></label>
+  <!--Email-1-->
+  <label>Email  <input type="email" value="'.$arr["email"].'" size="200" class="form-control" name="email"></label><br> 
 
-        <!--Email--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>Email  <input type="email" value="'.$arr["org_email"].'" size="50" class="form-control" name="org_email"></label><br>
+  <!--Email-2-->
+  <label>Email 2 <input type="email" value="'.$arr["email2"].'" size="200" class="form-control" name="email2"></label><br> 
 
-        <button type="button" class="btn btn-back btn-primary">Back</button>
-        <button type="button" class="btn btn-next btn-info">Next</button>
-      </div>
-      
-      <div class="contact-details">
-        <h2> Contact Information </h2><br>
+  <!--Remarks-->
+  <label>Remarks  <textarea value=" " class="form-control" cols="200" name="remarks">'.$arr["remarks"].'</textarea></label><br>
+  
+  <button class="btn btn-back btn-primary" type="button" class="btn-back">Back</button>
+  <button class="btn btn-next btn-info" type="button" class="btn-next">Next</button>
+</div>
+
+<div class="payment-details">
+  <h2> Payment Information</h2><br>
+  
+
+  <label>Payment Type </label>
+  <div class="form-group form-inline">
+      <div class="custom-control custom-radio">';
+      if($arr["payment_type"] == "No") {
+          echo '<input name="payment_type" id="No" class="custom-control-input" value="No" type="radio" checked>
+          <label class="custom-control-label" for="No"> No Payment </label>';
+      } else {
+        echo '<input name="payment_type" id="No" class="custom-control-input" value="No" type="radio">
+        <label class="custom-control-label" for="No"> No Payment </label>';
+      }
         
-        <!--Salutation-->
-       
-        <label for="salutation">Salutation  </label>
-        <input list="salutation" class="form-control" value="'.$arr["salutation"].'" name="salutation">
-        <datalist id="salutation">
-          <option value="Mr.">Mr.</option>
-          <option value="Ms.">Ms.</option>
-          <option value="Shri.">Shri.</option>
-          <option value="Smt.">Smt.</option>
-          <option value="Prof.">Prof.</option>
-          <option value="Dr.">Dr.</option>
-        </datalist><br>
+      echo '</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="custom-control custom-radio">';
+    if($arr["payment_type"] == "Full") {
+      echo '<input name="payment_type" id="Full" class="custom-control-input" value="Full" type="radio" checked>
+      <label class="custom-control-label" for="Full"> Full Payment </label>';
+    }else {
+      echo '<input name="payment_type" id="Full" class="custom-control-input" value="Full" type="radio">
+      <label class="custom-control-label" for="Full"> Full Payment </label>';
+    }
+    echo'</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="custom-control custom-radio">';
+    if($arr["payment_type"] == "Advanced") {
+      echo '<input name="payment_type" id="Adv" class="custom-control-input" value="Advanced" type="radio" checked>
+      <label class="custom-control-label" for="Adv"> Advance Payment </label>';
+    } else {
+      echo '<input name="payment_type" id="Adv" class="custom-control-input" value="Advanced" type="radio">
+      <label class="custom-control-label" for="Adv"> Advance Payment </label>';
+    }
+    echo '</div>
+  </div><br>
+  <!--Cash Payment(Total)-->
+  <div class="total-cash">
+  <label>Total Cash  </label>
+  <div class="input-group ">
+    <div class="input-group-prepend">
+      <span class="input-group-text">&#x20B9;</span>
+    </div>
+    <input type="number" value="'.$arr["total_cash"].'" class="form-control" name="total_cash">
+  </div><br>
+  </div>
 
-        <!--Contact Person-Name-->
-        <label>Name  <input type="name" value="'.$arr["name"].'" size="200" class="form-control" name="name"></label><br>
 
-        <!--Designation-->
-        <label>Designation  <input type="text" value="'.$arr["designation"].'" size="200" class="form-control" name="designation"></label><br>
+  <div class="full-pay">
+    <!--Date of Payment(Full Cash)-->
+    <label>Date of Full Payment   <input type="date" value="'.$arr["date_of_full_pay"].'" class="form-control" name="date_of_full_pay"></label><br>
+  </div>
 
-        <!--Mobile-->
-        <label>Mobile  <input type="number" value="'.$arr["mobile"].'" class="form-control" name="mobile"></label>
+  
+  <div class="adv-pay">
 
-        <!--Landline-1--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>Landline  <input type="number" value="'.$arr["landline"].'" class="form-control" name="landline"></label>
-
-        <!--Fax--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        <label>Fax  <input type="number" value="'.$arr["fax"].'" class="form-control" name="fax"></label><br>
-
-        <!--Email-1-->
-        <label>Email  <input type="email" value="'.$arr["email"].'" size="200" class="form-control" name="email"></label><br> 
-
-        <!--Remarks-->
-        <label>Remarks  <textarea class="form-control" cols="200" name="remarks">'.$arr["remarks"].'</textarea></label><br>
-        
-        <button class="btn btn-back btn-primary" type="button" class="btn-back">Back</button>
-        <button class="btn btn-next btn-info" type="button" class="btn-next">Next</button>
-      </div>
-
-      <div class="payment-details">
-        <h2> Payment Information</h2><br>
-        
-
-        <label>Payment Type </label>
-        <div class="form-group form-inline">
-            <div class="custom-control custom-radio">';
-            if($arr["payment_type"] == "No") {
-                echo '<input name="payment_type" id="No" class="custom-control-input" value="No" type="radio" checked>
-                <label class="custom-control-label" for="No"> No Payment </label>';
-            } else {
-              echo '<input name="payment_type" id="No" class="custom-control-input" value="No" type="radio">
-              <label class="custom-control-label" for="No"> No Payment </label>';
-            }
-              
-            echo '</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="custom-control custom-radio">';
-          if($arr["payment_type"] == "Full") {
-            echo '<input name="payment_type" id="Full" class="custom-control-input" value="Full" type="radio" checked>
-            <label class="custom-control-label" for="Full"> Full Payment </label>';
-          }else {
-            echo '<input name="payment_type" id="Full" class="custom-control-input" value="Full" type="radio">
-            <label class="custom-control-label" for="Full"> Full Payment </label>';
-          }
-          echo'</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="custom-control custom-radio">';
-          if($arr["payment_type"] == "Advanced") {
-            echo '<input name="payment_type" id="Adv" class="custom-control-input" value="Advanced" type="radio" checked>
-            <label class="custom-control-label" for="Adv"> Advance Payment </label>';
-          } else {
-            echo '<input name="payment_type" id="Adv" class="custom-control-input" value="Advanced" type="radio">
-            <label class="custom-control-label" for="Adv"> Advance Payment </label>';
-          }
-          echo '</div>
-        </div><br>
-
-        <!--Cash Payment(Total)-->
-        <div class="total-cash">
-        <label>Total Cash  </label>
+    <!--Cash Paid in Advance-->
+    <div class="total-cash">
+        <label>Advance Cash Paid  </label>
         <div class="input-group ">
           <div class="input-group-prepend">
             <span class="input-group-text">&#x20B9;</span>
           </div>
-          <input type="number" value="'.$arr["total_cash"].'" class="form-control" name="total_cash">
+          <input type="number" value="'.$arr["adv_cash_paid"].'" class="form-control" name="adv_cash_paid">
         </div><br>
-        </div>
+    </div>
 
+    <!--Date of Payment(Advance Cash)-->
+    <label>Date of Advance Payment   <input type="date" value="'.$arr["date_of_adv_pay"].'" class="form-control" name="date_of_adv_pay"></label><br>
 
-        <div class="full-pay">
-          <!--Date of Payment(Full Cash)-->
-          <label>Date of Full Payment   <input type="date" value="'.$arr["date_of_full_pay"].'" class="form-control" name="date_of_full_pay"></label><br>
-        </div>
-
-        
-        <div class="adv-pay">
-
-          <!--Cash Paid in Advance-->
-          <div class="total-cash">
-              <label>Advance Cash Paid  </label>
-              <div class="input-group ">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">&#x20B9;</span>
-                </div>
-                <input type="number" value="'.$arr["adv_cash_paid"].'" class="form-control" name="adv_cash_paid">
-              </div><br>
-          </div>
-
-          <!--Date of Payment(Advance Cash)-->
-          <label>Date of Advance Payment   <input type="date" value="'.$arr["date_of_adv_pay"].'" class="form-control" name="date_of_adv_pay"></label><br>
-
-
-          <!--Pending Payment
-          <label>Pending Payment   <input type="number" value="0" class="form-control" name="pending_pay"></label><br><br>
-          -->
-        </div>';
+    <!--Pending Payment
+    <label>Pending Payment   <input type="number" value="0"   class="form-control" name="pending_pay"></label><br><br>
+    -->
+  </div>';
 
       }
-?>        
-        
-        <button class="btn btn-back btn-primary" type="button" class="btn-back">Back</button>
-        <button class="btn btn-next btn-info" type="button" class="btn-next">Next</button>
-
+?>     
+      <br>   
+      <input type="submit" class="btn btn-block btn-success" value="SUBMIT"><br>
       </div><br>
-        <input type="submit" class="btn btn-block btn-success" value="SUBMIT"><br>
+        
     </form>
   </div>
   <footer class="footer mt-auto py-4 bg-dark">
@@ -362,7 +359,6 @@ foreach($array as $arr) {
         $('.full-pay').hide();
         $('.total-cash').show();
       })
- 
     })
   </script>
 </body>

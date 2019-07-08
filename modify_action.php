@@ -60,8 +60,10 @@ $name = $_POST["name"];
 $designation = $_POST["designation"];
 $mobile = $_POST["mobile"];
 $email = $_POST["email"];
+$email2 = $_POST["email2"];
+$ccode = $_POST['country_code'];
+$acode = $_POST['area_code'];
 $landline = $_POST["landline"];
-$fax = $_POST["fax"];
 $remarks = $_POST["remarks"];
 $total_cash  = $_POST["total_cash"];
 $payment_type = $_POST["payment_type"];
@@ -74,8 +76,8 @@ if($payment_type == "Advanced") $pending_pay = $total_cash - $adv_cash_paid;
 
 $sql = "UPDATE feedback SET org_category='".$org_category."', org_name='".$org_name."', state='".$state."',
 address='".$address."', pincode=".$pincode.", website='".$website."', org_email='".$org_email."', salutation='".$salutation."', 
-name='".$name."', designation='".$designation."', mobile=".$mobile.", email='".$email."', landline=".$landline.", fax=".$fax.", 
-remarks='".$remarks."', total_cash=".$total_cash.", payment_type='".$payment_type."', date_of_full_pay='".$date_of_full_pay."', 
+name='".$name."', designation='".$designation."', mobile=".$mobile.", email='".$email."',country_code='".$ccode."',area_code=".$acode.", landline=".$landline.",
+email2='".$email2."',remarks='".$remarks."', total_cash=".$total_cash.", payment_type='".$payment_type."', date_of_full_pay='".$date_of_full_pay."', 
 date_of_adv_pay='".$date_of_adv_pay."', adv_cash_paid='".$adv_cash_paid."', pending_pay='".$pending_pay."' where id=".$id;
 if($conn->query($sql) === TRUE)  echo '<br><br><div class="container"><div class="alert alert-success"> 
 <strong>Insertion Successful!</strong></div><br>';
