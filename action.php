@@ -63,7 +63,6 @@ $email2 = $_POST["email2"];
 $ccode = $_POST['country_code'];
 $acode = $_POST['area_code'];
 $landline = $_POST["landline"];
-// $fax = $_POST["fax"];
 $remarks = $_POST["remarks"];
 $total_cash  = $_POST["total_cash"];
 $payment_type = $_POST["payment_type"];
@@ -102,13 +101,12 @@ if($count < $max) {
         echo $conn->error;
   }
   // Code for displaying the eror
-  else echo '<br><div class="container"><div class="alert alert-dismissible alert-danger">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  Error :'.$conn->error.'</div></div>';
+  else echo '<br><div class="container"><div class="alert alert-danger">
+  <strong>Error :</strong>'.$conn->error.'</div></div>';
 }
-else echo '<br><div class="container"><div class="alert alert-dismissible alert-danger">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  Error : Max limit of entries have reached. No more entries can be made. Please delete entries from this category to add more.</div></div>';
+else echo '<br><div class="container"><div class="alert alert-danger">
+  <strong>Error :</strong> Max limit of entries have been reached. No more entries can be made. Please delete entries from the same category to add more.</div></div>';
+
 echo "<br><div class='container'><a class='btn btn-success' href='index.php'> Go Back</a></div></div>";
 $conn->close();
 ?>
