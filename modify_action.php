@@ -74,16 +74,52 @@ $pending_pay = 0;
 
 if($payment_type == "Advanced") $pending_pay = $total_cash - $adv_cash_paid;
 
+$sql  = "select * from feedback where id=".$id;
+$result = $conn->query($sql);
+$array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+foreach($array as $arr) $old_category = $arr["org_category"];
+
+if($old_category != $org_category) {
+  switch($old_category) {
+    case "Corporate/Companies/BE": $old_category = "Companies";break;
+    case "Educational Institution": $old_category = "Educational_Institution";break;
+    case "Study Abroad": $old_category = "Study_Abroad";break;
+  }
+  
+  $counter = "UPDATE counter SET ".$old_category." = ".$old_category." - 1 WHERE ID = 1";
+  if($conn->query($counter))
+    echo "<script>console.log('Decremented Counter!');</script>";
+  else
+    echo "<script>console.log('Decrementation of Counter Unsuccessful!');</script>";
+
+  switch($org_category) {
+    case "Corporate/Companies/BE": $org_category = "Companies";break;
+    case "Educational Institution": $org_category = "Educational_Institution";break;
+    case "Study Abroad": $org_category = "Study_Abroad";break;
+  }
+  $counter = "UPDATE counter SET ".$org_category." = ".$org_category." + 1 WHERE ID = 1";
+  if($conn->query($counter))
+    echo "<script>console.log('Incremented Counter!');</script>";
+  else
+    echo "<script>console.log('Incrementation of Counter Unsuccessful!');</script>";
+
+}
+else {
+  echo '<br><div class="container"><div class="alert alert-danger">
+  <strong>Error :</strong> Max limit of entries have been reached. No more entries can be made. Please delete entries from the same category to add more.</div></div>';
+  exit(0);
+}
 $sql = "UPDATE feedback SET org_category='".$org_category."', org_name='".$org_name."', state='".$state."',
 address='".$address."', pincode=".$pincode.", website='".$website."', org_email='".$org_email."', salutation='".$salutation."', 
 name='".$name."', designation='".$designation."', mobile=".$mobile.", email='".$email."',country_code='".$ccode."',area_code=".$acode.", landline=".$landline.",
 email2='".$email2."',remarks='".$remarks."', total_cash=".$total_cash.", payment_type='".$payment_type."', date_of_full_pay='".$date_of_full_pay."', 
 date_of_adv_pay='".$date_of_adv_pay."', adv_cash_paid='".$adv_cash_paid."', pending_pay='".$pending_pay."' where id=".$id;
-if($conn->query($sql) === TRUE)  echo '<br><br><div class="container"><div class="alert alert-success"> 
-<strong>Insertion Successful!</strong></div><br>';
-else echo '<div class="alert alert-dismissible alert-danger">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
-Error :'.$conn->error.'</div>';
+if($conn->query($sql) === TRUE)  
+  echo '<br><br><div class="container"><div class="alert alert-success"><strong>Insertion Successful!</strong></div><br>';
+else 
+  echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button>
+  Error :'.$conn->error.'</div>';
+
 echo "<br><a class='btn btn-success' href='index.php'> Go Back</a></div></div>";
 $conn->close();
 ?>
